@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ 
+ <mapper namespace="User">
+     <select id = "selectUser_all" resultType="com.meteor.model.User">
+        select * from user
+     </select>
+     <select id="selectUser" parameterType="int" resultType="com.meteor.model.User">
+		select * from user where id = #{id}
+	 </select>     
+	<!--
+	<insert id="insertUser" 
+	parameterType="com.meteor.model.User" 
+	flushCache="true"
+	statementType="PREPARED"
+	timeout="20">
+		insert into user (name,age) values(#{name},#{age})	
+	</insert>
+	 --> 
+	<!--  
+	<insert id="insertUser" parameterType="com.meteor.model.User" useGeneratedKeys="true">
+  	 -->
+  	 <insert id="insertUser" parameterType="com.meteor.model.User" useGeneratedKeys="true" keyProperty="id">
+  		insert into user(name,age) values(#{name},#{age})
+	 </insert>
+	 <update id="updateUser" parameterType="com.meteor.model.User">
+	 	update user set name=#{name},age=#{age} where id=#{id}
+	 </update>
+	 
+	 
+</mapper> 
