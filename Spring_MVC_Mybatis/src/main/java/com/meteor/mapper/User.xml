@@ -21,9 +21,7 @@
 		insert into user (name,age) values(#{name},#{age})	
 	</insert>
 	 --> 
-	<!--  
-	<insert id="insertUser" parameterType="com.meteor.model.User" useGeneratedKeys="true">
-  	 -->
+
   	 <insert id="insertUser" parameterType="com.meteor.model.User" useGeneratedKeys="true" keyProperty="id">
   		insert into user(name,age) values(#{name},#{age})
 	 </insert>
